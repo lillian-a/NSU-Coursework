@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Multiple Choice Flashcard Game for Space Nebulas">
+    <title>Space Nebula Flashcard Quiz</title>
+    <link rel="stylesheet" href="flashcard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+      var score;                  // # OF QUESTIONS CORRECT
+      var total_question_num;     // TOTAL # OF QUESTIONS
+      var questions = [];         // ARRAY HOLDING QUESTIONS
+      var count;                  // COUNT OF QUESTIONS ASKED
+      var order = [];
+      var map = [];
+      var btnMap = [0, 1, 2, 3];  // ARRAY HOLDING BUTTON ORDER ASSIGNING
+      var btnMapAlt = ["choice-a","choice-b","choice-c","choice-d"];
+
+      // POPULATE ORDER SEQUENCE
+      function populateSequence(arr, length) {
+        console.log("populate");
+        for (i = 0; i < length; i++)
+          arr.push(i);
+      }
+      // SHUFFLE ARRAY
+      function shuffle(arr) {
+        console.log("shuffle");
+        for (i = 0; i < arr.length; i++) {
+          var j = Math.floor(Math.random() * arr.length);
+          var temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+      function check() {
+        console.log("check");
+        var num = map[0];
+        for(i = 0; i < btnMapAlt.length; i++){
+          console.log(i);
+          if(document.getElementById(btnMapAlt[i]).getAttribute("class") == "orange choice-button"){
+            if(document.getElementById(btnMapAlt[i]).getAttribute("value") == questions[num].ans){
+              document.getElementById(btnMapAlt[i]).removeAttribute("class");
+              document.getElementById(btnMapAlt[i]).setAttribute("class", "green choice-button");
+              score++;
+              document.getElementById("answer-message").innerHTML = "CORRECT";
+              updateScore();
+              updateQuestionCounter();
+            } else {
+              document.getElementById(btnMapAlt[i]).removeAttribute("class");
+              document.getElementById(btnMapAlt[i]).setAttribute("class", "red choice-button");
+              document.getElementById("answer-message").innerHTML = "WRONG ANSWER";
+            }
+          } else {
+            if(document.getElementById(btnMapAlt[i]).getAttribute("value") == questions[num].ans){
+              document.getElementById(btnMapAlt[i]).removeAttribute("class");
+              document.getElementById(btnMapAlt[i]).setAttribute("class", "green choice-button");
+              updateQuestionCounter();
+            }
+          }
+
+        }
+      }
+      // CHANGE COLOR OF CLICKED AND NON CLICKED BUTTONS
+      function changeColor(e){
+        e.removeAttribute("class");
+        e.setAttribute("class", "orange choice-button");
+        for(var i = 0; i < btnMapAlt.length; i++){
+          if (e.getAttribute("id") != btnMapAlt[i] ) {
+            document.getElementById(btnMapAlt[i]).removeAttribute("class");
+            document.getElementById(btnMapAlt[i]).setAttribute("class", "blue choice-button");
+          }
+        }
+      }
+      function cleanArray(){
+        console.log("clean");
+        if(map.length > 1){
+          map.shift();
+          console.log(map);
+        } else {
+          gameOver();
+        }
+      }
+      // GAME OVER MESSAGE
+      function gameOver(){
+        console.log("Game Over");
+        if(score >= count*0.8){
+          document.getElementById("answer-message").innerHTML = "GAME OVER - Great Job!";
+        } else if((score < count*0.8)&&(score >= count*0.5)){
+          document.getElementById("answer-message").innerHTML = "GAME OVER - You Can Do Better.";
+        } else {
+          document.getElementById("answer-message").innerHTML = "GAME OVER - You Should Study...";
+        }
+      }
+      // UPDATE SCORE TEXT
+      function updateScore(){
+        if(count==0){
+          document.getElementById("questions-score").innerHTML = "Score: 0 / " + total_question_num;
+        } else {
+          document.getElementById("questions-score").innerHTML = "Score: " + score + " / " + total_question_num;
+        }
+      }
+      // UPDATE QUESTION NUM TEXT
+      function updateQuestionCounter(){
+        console.log(count);
+        if(count==0){
+          document.getElementById("questions-num").innerHTML = "Questions Answered: 0 / " + total_question_num;
+        } else {
+          document.getElementById("questions-num").innerHTML = "Questions Answered: " + count + " / " + total_question_num;
+        }
+      }
+
+      function playGame(){
+        console.log("play");
+        document.getElementById("answer-message").innerHTML = " ";
+        if(count > 0){
+          cleanArray();
+        }
+        if(map.length > 0){
+          count++;
+          // TURN BUTTONS BLUE
+          $("#choice-a, #choice-b, #choice-c, #choice-d").removeClass().addClass("blue choice-button");
+          // UPDATE IMAGE
+          $("#question-image").attr("src", questions[map[0]].src).attr("alt", questions[map[0]].alt);
+          // SHUFFLE BUTTON ORDER
+          shuffle(btnMapAlt);
+          shuffle(order);
+          if(map[0] != order[0]){
+            var temp = order[order.indexOf(map[0])];
+            order[order.indexOf(map[0])] = order[0];
+            order[0] = temp;
+          }
+          // APPLY BUTTON VALUES - CORRECT ANSWER
+          for(var i = 0; i < btnMapAlt.length; i++){
+            if(i == 0){
+              document.getElementById(btnMapAlt[0]).setAttribute("value", questions[map[0]].ans);
+            } else {
+              document.getElementById(btnMapAlt[i]).setAttribute("value", questions[order[i]].ans);
+            }
+          }
+        }
+      }
+
+      // ON LOAD
+      $(function() {
+        // CREATE QUESTIONS OBJECT ARRAY
+        questions.push({"num": 0, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/600px-Crab_Nebula.jpg", "ans":"Crab Nebula", "alt":"Image of the Crab Nebula"});
+        questions.push({"num": 1, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/600px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg", "ans":"Orion Nebula", "alt":"Image of the Orion Nebula"});
+        questions.push({"num": 2, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/NGC7293_%282004%29.jpg/600px-NGC7293_%282004%29.jpg", "ans":"Helix Nebula", "alt":"Image of the NGC 7293 Nebula aka Helix Nebula"});
+        questions.push({"num": 3, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Eagle_Nebula_from_ESO.jpg/600px-Eagle_Nebula_from_ESO.jpg", "ans":"Eagle Nebula", "alt":"Image of the Eagle Nebula"});
+        questions.push({"num": 4, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Cat%27s_Eye_Nebula_Redux.jpg/600px-Cat%27s_Eye_Nebula_Redux.jpg", "ans":"Cat's Eye Nebula", "alt":"Image of the Cat's Eye Nebula"});
+        questions.push({"num": 5, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Hubble_image_of_the_Ring_Nebula_%28Messier_57%29.jpg/600px-Hubble_image_of_the_Ring_Nebula_%28Messier_57%29.jpg", "ans":"Ring Nebula", "alt":"Image of the Ring Nebula"});
+        questions.push({"num": 6, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/NGC2080.jpg/600px-NGC2080.jpg", "ans":"Ghost Head Nebula", "alt":"Image of region of the NGC 2080 Nebula aka Ghost Head Nebula"});
+        questions.push({"num": 7, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/ESO-The_Omega_Nebula-phot-25a-09-fullres.jpg/600px-ESO-The_Omega_Nebula-phot-25a-09-fullres.jpg", "ans":"Omega Nebula", "alt":"Image of the Omega Nebula"});
+        questions.push({"num": 8, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Tarantula_Nebula_TRAPPIST.jpg/594px-Tarantula_Nebula_TRAPPIST.jpg", "ans":"Tarantula Nebula", "alt":"Image of the Tarantula Nebula"});
+        questions.push({"num": 9, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Carina_Nebula_by_ESO.jpg/605px-Carina_Nebula_by_ESO.jpg", "ans":"Carina Nebula", "alt":"Image of the Carina Nebula"});
+        questions.push({"num": 10, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Sh2136s.jpg/594px-Sh2136s.jpg", "ans":"Ghost Nebula", "alt":"Image of the Ghost Nebula"});
+        questions.push({"num": 11, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hs-2016-13-a-large_web.jpg/632px-Hs-2016-13-a-large_web.jpg", "ans":"Bubble Nebula", "alt":"Image of the NGC 7635 aka Bubble Nebula"});
+        questions.push({"num": 12, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Barnard_33.jpg/610px-Barnard_33.jpg", "ans":"Horsehead Nebula", "alt":"Image of the Horsehead Nebula"});
+        questions.push({"num": 13, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/NGC_6302_Hubble_2009.full.jpg/515px-NGC_6302_Hubble_2009.full.jpg", "ans":"Butterfly Nebula", "alt":"Image of the Butterfly Nebula"});
+        questions.push({"num": 14, "src": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Bipolar_planetary_nebula_PN_Hb_12.jpg", "ans":"Bipolar Nebula", "alt":"Image of the Bipolar Nebula"});
+        questions.push({"num": 15, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/NGC_6369HST.jpg/720px-NGC_6369HST.jpg", "ans":"Little Ghost Nebula", "alt":"Image of the Little Ghost Nebula"});
+        questions.push({"num": 16, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Nursery_of_New_Stars_-_GPN-2000-000972.jpg/563px-Nursery_of_New_Stars_-_GPN-2000-000972.jpg", "ans":"Giant Stellar Nursery Nebula", "alt":"Image of the NGC 604 aka Giant Stellar Nursery Nebula"});
+        questions.push({"num": 17, "src": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/NASA_Witch_Head_Nebula_Digitized_Sky_Survey.jpg/800px-NASA_Witch_Head_Nebula_Digitized_Sky_Survey.jpg", "ans":"Witch's Head Nebula", "alt":"Image of the Witch's Head Nebula"});
+        questions.push({"num": 18, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Ant_Nebula.jpg/800px-Ant_Nebula.jpg", "ans":"Ant Nebula", "alt":"Image of the Ant Nebula"});
+        questions.push({"num": 19, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/IC1805_--_H-alpha_%2B_RGB.jpg/800px-IC1805_--_H-alpha_%2B_RGB.jpg", "ans":"Heart Nebula", "alt":"Image of the Heart Nebula"});
+        questions.push({"num": 20, "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NGC_2244_Rosette_Nebula.jpg/800px-NGC_2244_Rosette_Nebula.jpg", "ans":"Rosette Nebula", "alt":"Image of the Rosette Nebula"});
+        total_question_num = questions.length;
+        console.log(questions);
+        score = 0;
+        count = 0;
+        populateSequence(map, total_question_num);
+        populateSequence(order, total_question_num);
+        shuffle(map);
+        updateScore();
+        updateQuestionCounter();
+        playGame();
+      });
+
+    </script>
+  </head>
+
+
+  <body>
+    <div class="question center-me">
+      <h1 class="question-heading">Who Am I?</h1>
+    </div>
+    <div class="question center-me question-img">
+      <img id="question-image" class="question-img" src="" alt="">
+    </div>
+    <div class="choices center-me">
+          <label for="choice-a"><input type="button" id="choice-a" class="blue choice-button" value="Choice 1" onclick="changeColor(this)"></label>
+          <label for="choice-b"><input type="button" id="choice-b" class="blue choice-button" value="Choice 2" onclick="changeColor(this)"></label>
+          <label for="choice-c"><input type="button" id="choice-c" class="blue choice-button" value="Choice 3" onclick="changeColor(this)"></label>
+          <label for="choice-d"><input type="button" id="choice-d" class="blue choice-button" value="Choice 4" onclick="changeColor(this)"></label>
+          <br>
+          <label for="check-button"><input type="button" id="check-button" class="button-green choice-button" onclick="check()" value="Correct Answer"></label>
+          <label for="next-button"><input type="button" id="next-button" class="button-green choice-button" onclick="playGame()" value="Next"></label>
+      </div>
+
+      <p id="answer-message" class="center-me"></p>
+
+    <div class="footer center-me">
+      <p><span id="questions-num">Questions Answered: 0 / 0</span><br><span id="questions-score">Score: 0 / 0</span></p>
+    </div>
+
+  </body>
+</html>

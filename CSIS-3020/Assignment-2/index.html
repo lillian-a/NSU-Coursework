@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Three Disney Parks in Pictures</title>
+    <meta name="author" content="Lillian Arguelles">
+    <meta name="description" content="CSIS 3020 - Assignment 2">
+
+    <style>
+      body {
+        background: #ecedfc;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        text-align: center;
+        margin: 5px;
+      }
+      .menu {
+        background: #7770B4;
+        color: #FFF;
+        padding: 5px;
+      }
+      .menu:hover .menu-item a {
+        display: block;
+        padding: 2px;
+      }
+      .menu:hover .menu-item a:hover {
+        display: block;
+        background-color: #45306F; /*8CCA33*/
+        text-decoration: underline;
+        font-weight: bold;
+        color: white;
+      }
+      .menu .menu-item a {
+        display: none;
+        border-top: 2px solid #225599;
+        background-color: white;
+        width: 100%;
+        text-decoration: none;
+        color: #45306F;
+        padding: 2px;
+      }
+      @media screen and (max-width: 480px) {
+
+        .menu .menu-item:active img {
+          width: 73%;
+        }
+      }
+      @media only screen and (max-width: 1024) {
+
+      }
+      .menu .menu-item:active img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .menu .menu-item img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Three Disney Parks</h1>
+    <div class="menu">
+      Menu
+      <div class="menu-item">
+        <a href="#">Disney World, Orlando, FL, USA</a>
+        <!-- https://en.wikipedia.org/wiki/File:Cinderella_Castle_at_Magic_Kingdom.jpg -->
+        <img src="640px-Cinderella_Castle_at_Magic_Kingdom.jpg" width="73%" alt="Cinderella Castle in Magic Kingdom at Disney World in Orlando">
+        <!-- https://en.wikipedia.org/wiki/File:1_epcot_spaceship_earth_2010a.JPG -->
+        <img src="640px-1_epcot_spaceship_earth_2010a.jpg" width="73%" alt="Spaceship Earch at Epcot at Disney World in Orlando">
+      </div>
+      <div class="menu-item">
+        <a href="#">Disneyland, Anaheim, CA, USA</a>
+        <!-- https://upload.wikimedia.org/wikipedia/commons/c/c8/Sleeping_Beauty%27s_Castle_Side.JPG -->
+        <img src="360px-Sleeping_Beauty's_Castle_Side.jpg" width="73%" alt="Sleeping Beauty's Castle at Disneyland in California">
+      </div>
+      <div class="menu-item">
+        <a href="#">Disneyland Paris, Chessy, France</a>
+        <!-- https://en.wikipedia.org/wiki/File:Disneyland_Hotel,_Paris,_France,_2011.jpg -->
+        <img src="Disneyland_Hotel,_Paris,_France,_2011.jpg" width="73%" alt="Disneyland Hotel at Disneyland Paris in France">
+        <!-- https://upload.wikimedia.org/wikipedia/commons/3/3b/Disneyland_Paris_Disneyland_Railroa_Fantasyland_Station.JPG -->
+        <img src="640px-Disneyland_Paris_Disneyland_Railroa_Fantasyland_Station.jpg" width="73%" alt="Fantasyland Railroad Station at Disneyland Paris in France">
+      </div>
+    </div>
+
+  </body>
+</html>

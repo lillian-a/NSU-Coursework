@@ -1,0 +1,106 @@
+body {
+    color: #526066;
+}
+h1.question-heading{
+  color: #34495e;
+  display: table-cell;
+  font-size: 32px;
+  font-weight: 500;
+}
+.question{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+  display: table;
+}
+.question-img{
+  max-height: 500px;
+  height: auto;
+  margin-bottom: 16px !important;
+}
+.footer {
+  background: #111;
+  color: white;
+  padding: 8px 32px;
+}
+.center-me{
+  text-align: center;
+}
+
+
+.choice-button{
+  background-color:#E6E6E6;
+  border:1px solid #999;
+  border:0 rgba(0,0,0,0);
+  border-radius: 32px;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  font-size:100%;
+  margin-bottom: 16px !important;
+  padding: 8px 16px !important;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-green, .button-red, .button-orange, .button-blue {
+  border-radius: 4px;
+}
+.button-green {
+  background: rgb(28, 184, 65); /* this is a green */
+}
+.button-red {
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+.button-orange {
+  background: rgb(223, 117, 20); /* this is an orange */
+}
+.button-blue {
+  background: rgb(66, 184, 221); /* this is a light blue */
+}
+.green, .red, .orange, .blue {
+  border-radius: 4px;
+}
+.green {
+  background: rgb(28, 184, 65);
+}
+.red {
+  background: rgb(202, 60, 60);
+}
+.orange {
+  background: rgb(223, 117, 20);
+}
+.blue {
+  background: rgb(66, 184, 221);
+}
+.green-message-box {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+}
+.blue-message-box {
+    background-color: #d9edf7;
+    border-color: #bcdff1;
+    color: #31708f;
+}
+.yellow-message-box {
+    background-color: #fcf8e3;
+    border-color: #faf2cc;
+    color: #8a6d3b;
+}
+.red-message-box {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+}
+.message-box {
+    padding: 12px 15px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.choices {
+    margin: 0 auto;
+}

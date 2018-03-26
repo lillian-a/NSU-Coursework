@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Three Disney Parks in Pictures</title>
+    <meta name="author" content="Lillian Arguelles">
+    <meta name="description" content="CSIS 3020 - Assignment 2">
+
+    <style>
+      body {
+        background: #ecedfc;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        text-align: center;
+        margin: 5px;
+      }
+      .menu {
+        background: #7770B4;
+        color: #FFF;
+        padding: 5px;
+      }
+      .menu:hover .menu-item a {
+        display: block;
+        padding: 2px;
+      }
+      .menu:hover .menu-item a:hover {
+        display: block;
+        background-color: #45306F; /*8CCA33*/
+        text-decoration: underline;
+        font-weight: bold;
+        color: white;
+      }
+      .menu .menu-item a {
+        display: none;
+        border-top: 2px solid #225599;
+        background-color: white;
+        width: 100%;
+        text-decoration: none;
+        color: #45306F;
+        padding: 2px;
+      }
+      @media screen and (max-width: 480px) {
+
+        .menu .menu-item:active img {
+          width: 73%;
+        }
+      }
+      @media only screen and (max-width: 1024) {
+
+      }
+      .menu .menu-item:active img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .menu .menu-item img {
+        display: none;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Three Disney Parks</h1>
+    <div class="menu">
+      Menu
+      <div class="menu-item">
+        <a href="#">Disney World, Orlando, FL, USA</a>
+        <!-- https://upload.wikimedia.org/wikipedia/commons/6/68/Disney_Orlando_castle_at_night.JPG -->
+        <img src="512px-Disney_Orlando_castle_at_night.jpg" width="100%" alt="Nighttime View of Castle at Disney in Orlando">
+        <!-- https://upload.wikimedia.org/wikipedia/commons/1/1c/Reflections_of_Earth_9.jpg -->
+        <img src="Reflections_of_Earth_9.jpg" width="100%" alt="Fireworks at Reflections of Earth Festival at Epcot in Disney Orlando">
+      </div>
+      <div class="menu-item">
+        <a href="#">Disneyland, Anaheim, CA, USA</a>
+        <!-- https://commons.wikimedia.org/wiki/File%3ADisneyland_Castle.jpg -->
+        <img src="360px-Disneyland_Castle.jpg" width="100%" alt="Castle at Disneyland in California">
+      </div>
+      <div class="menu-item">
+        <a href="#">Disneyland Paris, Chessy, France</a>
+        <!--https://upload.wikimedia.org/wikipedia/commons/d/dd/Adventureland_Disneyland_Paris.png-->
+        <img src="Adventureland_Disneyland_Paris.png" width="100%" alt="Ship in Adventureland at Disneyland Paris">
+        <!--https://upload.wikimedia.org/wikipedia/commons/d/d1/Studio_Tram_Tour-_Behind_The_Magic_-_Walt_Disney_Studios_-_Disneyland_Paris.jpg-->
+        <img src="Studio_Tram_Tour-_Behind_The_Magic_-_Walt_Disney_Studios_-_Disneyland_Paris.jpg" width="100%" alt="Studio Tour Tram in Behind The Scenes at Disneyland Paris">
+      </div>
+    </div>
+
+
+  </body>
+</html>
