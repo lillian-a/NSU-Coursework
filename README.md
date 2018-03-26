@@ -31,3 +31,8 @@ General Coursework for Classes at Nova Southeastern University
   * CSIS 4020
 * Swift
   * CSIS 4020
+
+## Projects Located Elsewhere
+* **CSIS 3460**
+ * [Color Buster Game](https://github.com/lillian-a/Color-Buster-Game)
+  * Java implementation with functioning GUI of a classic Color Buster Game. Created as a Final Project.
