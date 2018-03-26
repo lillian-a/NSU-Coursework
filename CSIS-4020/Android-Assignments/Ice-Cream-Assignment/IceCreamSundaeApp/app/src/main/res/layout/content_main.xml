@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.lillian.icecreamsundaeapp.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Hello World!" />-->
+
+    <TextView
+        android:text="Ice Cream Sundae Maker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textViewTitle"
+        android:textSize="30sp"
+        android:textAlignment="center" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/priceTextView"
+                android:text="$0.00"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Ice Cream:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/iceCreamTextView"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/iceCreamSpinner"
+                android:spinnerMode="dialog"
+                android:entries="@array/ice_cream_flavor"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Size:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sizeTextView"
+                android:textSize="18sp"
+                android:layout_weight="1"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/sizeSpinner"
+                android:spinnerMode="dialog"
+                android:entries="@array/ice_cream_size"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:text="Peanuts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewTitle"
+                android:layout_alignEnd="@+id/buttonTheWorks"
+                android:id="@+id/peanutsCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:text="M&amp;Ms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mAndMCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:text="Almonds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/almondsCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:text="Brownies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/browniesCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:text="Strawberries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/strawberriesCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:text="Oreos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/oreosCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:text="Gummy Bears"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gummyBearCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+
+            <CheckBox
+                android:text="Marshmallows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/marshmallowsCheckBox"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:onClick="onCheckboxClicked" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Hot Fudge:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hotFudgeTextView"
+                android:textSize="18sp"
+                android:layout_weight="1" />
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hotFudgeSeekBar"
+                android:max="3"
+                android:progress="1"
+                android:layout_weight="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hotFudgeSizeTextView"
+                android:text="1 oz."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tableLayout"
+            android:layout_alignParentStart="true" >
+
+            <Button
+                android:text="The Works!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonTheWorks"
+                android:onClick="processTheWorks"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resetButton"
+                android:onClick="processResetButton"
+                android:layout_weight="2" />
+
+            <Button
+                android:text="Order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderButton"
+                android:onClick="processOrderButton"
+                android:layout_weight="2" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
