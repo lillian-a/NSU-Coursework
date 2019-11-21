@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Course"
+    targetNamespace="http://www.nova.edu/course"
+    elementFormDefault="qualified"
+    xmlns="http://www.nova.edu/course"
+    xmlns:bk="http://www.example.com/book"
+    xmlns:ins="http://www.nova.edu/instructor"
+    xmlns:auth="http://www.example.com/author"
+    xmlns:mstns="http://tempuri.org/Course.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="NSU">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Course">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CourseInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="CourseID">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Subject"/>
+                          <xs:element type="xs:short" name="Code"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Title"/>
+                    <xs:element name="Location">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Campus"/>
+                          <xs:element type="xs:string" name="Building"/>
+                          <xs:element type="xs:short" name="Room"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DateTime">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DateSet">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Time">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:string" name="Day"/>
+                                      <xs:element type="xs:time" name="StartTime"/>
+                                      <xs:element type="xs:time" name="EndTime"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:byte" name="id"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Dates">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element type="xs:date" name="StartDate"/>
+                                      <xs:element type="xs:date" name="EndDate"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="id"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:int" name="Term"/>
+                    <xs:element type="xs:string" name="Semester"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Instructor">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Person" minOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="Firstname"/>
+                          <xs:element type="xs:string" name="Lastname"/>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="id"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Required_Materials">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="books">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="book" minOccurs="1">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="Title"/>
+                                <xs:element name="Authors">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Person" minOccurs="1">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:string" name="Firstname"/>
+                                            <xs:element type="xs:string" name="Lastname"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element type="xs:string" name="Publisher"/>
+                                <xs:element type="xs:short" name="Year"/>
+                                <xs:element type="xs:byte" name="Edition"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:string" name="isbn"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:int" name="crn"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

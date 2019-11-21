@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema
+  attributeFormDefault="unqualified"
+  elementFormDefault="qualified"
+  targetNamespace="http://www.nova.edu/course"
+  xmlns="http://www.nova.edu/course"
+  xmlns:ins="http://www.nova.edu/instructor"
+  xmlns:mat="http://www.nova.edu/materials"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  >
+
+
+  <xs:import schemaLocation="InstructorSchema.xsd" namespace="http://www.nova.edu/instructor" />
+  <xs:import schemaLocation="MaterialsSchema.xsd" namespace="http://www.nova.edu/materials" />
+  
+  
+  <xs:element name="course">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="title"/>
+        <xs:element type="xs:string" name="program"/>
+        <xs:element type="xs:short" name="number"/>
+        <xs:element name="term">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="crn"/>
+              <xs:element type="xs:int" name="code"/>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element type="xs:short" name="year"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="schedule">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dates">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:date" name="startdate"/>
+                    <xs:element type="xs:date" name="enddate"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="day"/>
+              <xs:element name="time">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="starttime"/>
+                    <xs:element type="xs:string" name="endtime"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="location">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="building"/>
+              <xs:element type="xs:short" name="room"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element ref="ins:instructor" />
+        <xs:element ref="mat:materials" />
+
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

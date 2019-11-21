@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<course xmlns="http://www.nova.edu/course">
+  <title>Web Services and Systems</title>
+  <program>CSIS</program>
+  <number>4311</number>
+  <term>
+    <crn>32903</crn>
+    <code>201630</code>
+    <name>Winter</name>
+    <year>2018</year>
+  </term>
+  <schedule>
+    <dates>
+      <startdate>2018-01-08</startdate>
+      <enddate>2018-05-06</enddate>
+    </dates>
+    <day>Wednesday</day>
+    <time>
+      <starttime>6 pm</starttime>
+      <endtime>8:30 pm</endtime>
+    </time>
+  </schedule>
+  <location>
+    <building>Carl De Santis</building>
+    <room>4032</room>
+  </location>
+
+  <instructor xmlns="http://www.nova.edu/instructor">
+    <firstname>Salam</firstname>
+    <lastname>Farhat</lastname>
+    <email>farhat@nova.edu</email>
+    <notes>This course is administered by the Department .....</notes>
+  </instructor>
+  <materials xmlns="http://www.nova.edu/materials">
+    <books>
+      <book>
+        <type>Required</type>
+        <title>Title: Web Services and SOA: Principles and Technology</title>
+        <authors>
+          <author>
+            <firstname>Michael</firstname>
+            <lastname>Papazoglou</lastname>
+          </author>
+        </authors>
+        <publisher>John Wiley &amp; Sons</publisher>
+        <year>2012</year>
+        <edition>2nd</edition>
+        <isbn10>0-273-73216-1</isbn10>
+        <isbn13>978-0-273-73216-7</isbn13>
+      </book>
+    </books>
+    <notes>Access to a computer (desktop or laptop) on which</notes>
+  </materials>
+</course>

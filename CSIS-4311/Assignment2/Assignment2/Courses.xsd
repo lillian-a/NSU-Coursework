@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CoursesSchema"
+    targetNamespace="http://www.nova.edu/course"
+    elementFormDefault="qualified"
+    xmlns="http://www.nova.edu/course"
+    xmlns:mstns="http://tempuri.org/CoursesSchema.xsd"
+    xmlns:cs="http://www.nova.edu/course"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:import schemaLocation="Course.xsd" namespace="http://www.nova.edu/course" />
+  <xs:element name="courses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cs:course" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
