@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEProject", "SEProject\SEProject.csproj", "{0F6B1846-9115-46F1-910D-8C5D9B802682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudetEval", "..\..\..\Downloads\StudetEval\StudetEval\StudetEval\StudetEval.csproj", "{EC52B2FB-9C6D-488D-94E5-E3E1B6D81916}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F6B1846-9115-46F1-910D-8C5D9B802682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6B1846-9115-46F1-910D-8C5D9B802682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6B1846-9115-46F1-910D-8C5D9B802682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6B1846-9115-46F1-910D-8C5D9B802682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC52B2FB-9C6D-488D-94E5-E3E1B6D81916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC52B2FB-9C6D-488D-94E5-E3E1B6D81916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC52B2FB-9C6D-488D-94E5-E3E1B6D81916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC52B2FB-9C6D-488D-94E5-E3E1B6D81916}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2E1B8AB-9C8D-4169-8AA4-157CAF67ED7A}
+	EndGlobalSection
+EndGlobal
